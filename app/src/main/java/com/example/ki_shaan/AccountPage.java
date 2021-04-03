@@ -22,7 +22,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.auth.User;
 
 public class AccountPage extends AppCompatActivity {
-    String name,email,mobile,userrole;
     FirebaseAuth firebaseAuth;
     FirebaseUser u;
 
@@ -38,7 +37,6 @@ public class AccountPage extends AppCompatActivity {
         TextView t3 = findViewById(R.id.accountPageMobile);
         TextView t4 = findViewById(R.id.accountPageRole);
 
-
         firebaseAuth = FirebaseAuth.getInstance();
         u = firebaseAuth.getCurrentUser();
         try {
@@ -47,17 +45,13 @@ public class AccountPage extends AppCompatActivity {
                     new OnCompleteListener<DataSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<DataSnapshot> task) {
-                            try {
-                                UserInfo u = task.getResult().getValue(UserInfo.class);
-                                t1.setText(u.firstname);
-                                Toast.makeText(AccountPage.this, u.firstname, Toast.LENGTH_LONG).show();
-                            }
-                            catch (Exception e){
-                                System.out.println("AEPI"+e);
-                            }
-                            //Toast.makeText(AccountPage.this, task.getResult().getValue().toString(), Toast.LENGTH_SHORT).show();
-                            System.out.print("AESI"+task.getResult().getValue().toString());
 
+                            UserInfo u = task.getResult().getValue(UserInfo.class);
+                            t1.setText(u.getFirstname());
+                            t2.setText(u.getEmail());
+                            t3.setText(u.getMobile());
+                            t4.setText(u.getRole());
+                            //p.setVisibility(View.INVISIBLE);
                         }
                     }
             );

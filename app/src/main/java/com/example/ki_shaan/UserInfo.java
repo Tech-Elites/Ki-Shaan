@@ -13,6 +13,31 @@ public class UserInfo {
         this.role = role;
         this.groupname = groupname;
     }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public String getGroupname() {
+        return groupname;
+    }
+
     public UserInfo()
     {}
     public HashMap<String, Object> getHashMap()
