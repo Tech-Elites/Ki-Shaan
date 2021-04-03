@@ -46,6 +46,29 @@
             android:layout_height="wrap_content"
             android:text="Price: 200" />
 
+        <TextView
+            android:id="@+id/qtyavailableText"
+            android:layout_width="match_parent"
+            android:textColor="@color/white"
+            android:fontFamily="@font/scriptmt"
+            android:textSize="20dp"
+            android:paddingHorizontal="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <EditText
+            android:hint="Quantity"
+            android:textColor="@color/white"
+            android:textColorHint="#877171"
+            android:fontFamily="@font/scriptmt"
+            android:paddingHorizontal="10dp"
+            android:id="@+id/qtyInput"
+            android:layout_width="111dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

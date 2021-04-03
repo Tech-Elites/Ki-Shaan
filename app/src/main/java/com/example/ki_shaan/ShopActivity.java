@@ -45,14 +45,6 @@ public class ShopActivity extends AppCompatActivity {
         getGrain();
 
 
-
-
-
-        //Toast.makeText(this, allProducts.size(), Toast.LENGTH_SHORT).show();
-//        System.out.println("XYAZ "+grains.get(0));
-
-
-
     }
 
     void getGrain(){
@@ -122,12 +114,14 @@ public class ShopActivity extends AppCompatActivity {
                         if(temp.getPrice()<max.getPrice() && temp.getPrice()>0){
                             max=temp;
                             tempSeller=snapshot1.getKey();
+                            tempqty=max.getQuantityavailable();
                         }
 //                        Toast.makeText(ShopActivity.this, ""+snapshot1.getKey(), Toast.LENGTH_SHORT).show();
 
                     }
                     allProducts.add(new ShopItemsClass(grains.get(index),max.getPrice()));
                     sellerId.add(tempSeller);
+                    qtyavail.add(tempqty);
                     if(index!=grains.size()-1){
                         calculateMin(grains, index+1);
                     }
@@ -159,12 +153,14 @@ public class ShopActivity extends AppCompatActivity {
                     if(temp.getPrice()<max.getPrice() && temp.getPrice()>0){
                         max=temp;
                         tempSeller=snapshot1.getKey();
+                        tempqty=max.getQuantityavailable();
                     }
 //                        Toast.makeText(ShopActivity.this, ""+snapshot1.getKey(), Toast.LENGTH_SHORT).show();
 
                 }
                 allProducts.add(new ShopItemsClass(grains.get(index),max.getPrice()));
                 sellerId.add(tempSeller);
+                qtyavail.add(tempqty);
                 if(index!=grains.size()-1){
                     calculateMinPulses(grains, index+1);
                 }
@@ -196,6 +192,7 @@ public class ShopActivity extends AppCompatActivity {
                         intent.putExtra("title",allProducts.get(position).name);
                         intent.putExtra("price",allProducts.get(position).price);
                         intent.putExtra("sellerid",sellerId.get(position));
+                        intent.putExtra("qtyavail",qtyavail.get(position));
                         startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(ShopActivity.this).toBundle());
                     }
                 }
