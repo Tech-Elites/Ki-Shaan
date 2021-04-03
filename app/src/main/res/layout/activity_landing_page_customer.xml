@@ -82,7 +82,7 @@
                 android:backgroundTint="#d34958"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
+
                 android:onClick="onDonateClick"
                 android:layout_weight="1"
                 android:text="Contact us" />
