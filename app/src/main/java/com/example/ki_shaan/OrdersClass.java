@@ -15,6 +15,22 @@ public class OrdersClass {
     OrdersClass()
     {}
 
+    public String getEmail() {
+        return email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
     public HashMap<String, Object> getHashMap() {
         HashMap<String, Object> newUser = new HashMap<>();
         newUser.put("email", email);
