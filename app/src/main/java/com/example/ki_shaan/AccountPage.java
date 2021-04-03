@@ -25,12 +25,13 @@ public class AccountPage extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseUser u;
 
-    //ProgressBar p = findViewById(R.id.customerAccountProgress);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_page);
-        //p.setVisibility(View.VISIBLE);
+        ProgressBar p = findViewById(R.id.customerAccountProgress);
+        p.setVisibility(View.VISIBLE);
 
         TextView t1 = findViewById(R.id.accountPageName);
         TextView t2 = findViewById(R.id.accountPageEmail);
@@ -51,7 +52,7 @@ public class AccountPage extends AppCompatActivity {
                             t2.setText(u.getEmail());
                             t3.setText(u.getMobile());
                             t4.setText(u.getRole());
-                            //p.setVisibility(View.INVISIBLE);
+                            p.setVisibility(View.INVISIBLE);
                         }
                     }
             );
