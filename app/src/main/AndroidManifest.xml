@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KiShaan">
-        <activity android:name=".EachShopItemPage"></activity>
+        <activity android:name=".FarmerSell"></activity>
+        <activity android:name=".EachShopItemPage" />
         <activity android:name=".AccountPage" />
         <activity android:name=".ShopActivity" />
         <activity android:name=".ContactUsPage" />
