@@ -12,6 +12,8 @@ public class OrdersClass {
         this.price = price;
         this.quantity = quantity;
     }
+    OrdersClass()
+    {}
 
     public HashMap<String, Object> getHashMap() {
         HashMap<String, Object> newUser = new HashMap<>();

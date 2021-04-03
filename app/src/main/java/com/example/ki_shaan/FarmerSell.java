@@ -1,5 +1,6 @@
 package com.example.ki_shaan;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -11,7 +12,12 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class FarmerSell extends AppCompatActivity {
     Spinner spin, spin2;
@@ -64,8 +70,37 @@ public class FarmerSell extends AppCompatActivity {
     {
         EditText pr = findViewById(R.id.priceFarmerSellProduct);
         EditText qt = findViewById(R.id.quantityProductFarmer);
-        price = Integer.parseInt(pr.getText().toString());
-        quantity = Integer.parseInt(qt.getText().toString());
+        if(pr.getText().toString().compareTo("")==0||qt.getText().toString().compareTo("")==0)
+        {
+            new AlertDialog.Builder(this)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setTitle("Ooops!")
+                    .setMessage("Fill all the details to proceed!!")
+                    .setPositiveButton("Ok",null)
+                    .show();
+        }
+        else
+        {
+
+            price = Integer.parseInt(pr.getText().toString());
+            quantity = Integer.parseInt(qt.getText().toString());
+            FirebaseUser u= FirebaseAuth.getInstance().getCurrentUser();
+            if(u!=null)
+            {
+                Products p=new Products(price,quantity);
+                HashMap<String,Object> hashMap=p.getHashMap();
+                FirebaseDatabase.getInstance().getReference().child("products").child(category).child(name).child(u.getUid()).setValue(hashMap);
+                new AlertDialog.Builder(this)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle("Success!")
+                        .setMessage("Your order has been taken up")
+                        .setPositiveButton("Ok",null)
+                        .show();
+
+            }
+        }
+
+
     }
 
 }

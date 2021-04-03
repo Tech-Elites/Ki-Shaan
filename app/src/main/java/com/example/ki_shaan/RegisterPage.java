@@ -102,7 +102,7 @@ public class RegisterPage extends AppCompatActivity {
                             {
                                 int id=check.getCheckedRadioButtonId();
                                 RadioButton r=findViewById(id);
-                                UserInfo us=new UserInfo(fn,ln,e,mn,r.getText().toString(),"null");
+                                UserInfo us=new UserInfo(fn,ln,mn,e,r.getText().toString(),"null");
                                 HashMap<String,Object> usMap=us.getHashMap();
                                 Products p=new Products(-1,0);
                                 HashMap<String,Object> pMap=p.getHashMap();

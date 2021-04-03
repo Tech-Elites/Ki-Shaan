@@ -9,6 +9,8 @@ public class Products {
         this.price = price;
         this.quantityavailable = quantityavailable;
     }
+    Products()
+    {}
 
     public HashMap<String, Object> getHashMap() {
         HashMap<String, Object> newUser = new HashMap<>();
