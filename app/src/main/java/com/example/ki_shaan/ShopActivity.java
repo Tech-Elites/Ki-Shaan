@@ -2,16 +2,13 @@ package com.example.ki_shaan;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+public class ShopActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        finish();
-        startActivity(new Intent(this, LandingPageCustomer.class));
+        setContentView(R.layout.activity_shop);
     }
 }

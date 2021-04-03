@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KiShaan">
-        <activity android:name=".CreateJoinGrp"></activity>
+        <activity android:name=".ShopActivity"></activity>
+        <activity android:name=".ContactUsPage" />
+        <activity android:name=".DonatePage" />
+        <activity android:name=".CreateJoinGrp" />
         <activity android:name=".LandingPageCustomer" />
         <activity android:name=".LandingPageFarmer" />
         <activity android:name=".RegisterPage" />
