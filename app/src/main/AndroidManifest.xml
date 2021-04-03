@@ -19,6 +19,12 @@
         <activity android:name=".LandingPageFarmer" />
         <activity android:name=".RegisterPage" />
         <activity android:name=".LoginPage" />
+        <activity android:name=".AccountInfoGroupFarmerCommon" />
+        <activity android:name=".BorrowMoneyFarmer" />
+        <activity android:name=".CoopLandingPage" />
+        <activity android:name=".CreateGroupPage" />
+        <activity android:name=".FarmerAccountIndi" />
+        <activity android:name=".JoinPage" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
