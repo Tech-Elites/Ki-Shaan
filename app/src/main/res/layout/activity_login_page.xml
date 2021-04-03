@@ -50,6 +50,7 @@
             android:paddingBottom="10dp" />
 
         <Button
+            android:onClick="loginPageLogin"
             android:id="@+id/button"
             android:layout_width="254dp"
             android:layout_height="49dp"
@@ -59,6 +60,7 @@
             android:text="Sign in" />
 
         <Button
+            android:onClick="loginPageNeedAccount"
             android:padding="10dp"
             android:id="@+id/button2"
             android:layout_width="wrap_content"
