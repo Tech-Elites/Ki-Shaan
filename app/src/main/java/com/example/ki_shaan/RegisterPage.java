@@ -102,7 +102,7 @@ public class RegisterPage extends AppCompatActivity {
                             {
                                 int id=check.getCheckedRadioButtonId();
                                 RadioButton r=findViewById(id);
-                                UserInfo us=new UserInfo(fn,ln,e,mn,r.getText().toString(),"null");
+                                UserInfo us=new UserInfo(fn,ln,mn,e,r.getText().toString(),"null");
                                 HashMap<String,Object> usMap=us.getHashMap();
                                 Products p=new Products(-1,0);
                                 HashMap<String,Object> pMap=p.getHashMap();
@@ -118,21 +118,35 @@ public class RegisterPage extends AppCompatActivity {
                                         FirebaseDatabase.getInstance().getReference().child("products").child("pulses").child("uraddal").child(u.getUid()).setValue(pMap);
                                         FirebaseDatabase.getInstance().getReference().child("products").child("pulses").child("moongdal").child(u.getUid()).setValue(pMap);
                                         FirebaseDatabase.getInstance().getReference().child("accounts").child(u.getUid()).child("totalassets").setValue(0);
+                                        new AlertDialog.Builder(RegisterPage.this)
+                                                .setTitle("Success!!")
+                                                .setMessage("User Registered Successfully!!")
+                                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(DialogInterface dialog, int which) {
+                                                        finish();
+                                                        startActivity(new Intent(RegisterPage.this,LandingPageFarmer.class));
+                                                    }
+                                                })
+                                                .show();
 
                                     }
+                                    else{
+                                        new AlertDialog.Builder(RegisterPage.this)
+                                                .setTitle("Success!!")
+                                                .setMessage("User Registered Successfully!!")
+                                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(DialogInterface dialog, int which) {
+                                                        finish();
+                                                        startActivity(new Intent(RegisterPage.this,LandingPageCustomer.class));
+                                                    }
+                                                })
+                                                .show();
+                                    }
 
-                                    new AlertDialog.Builder(RegisterPage.this)
-                                            .setTitle("Success!!")
-                                            .setMessage("User Registered Successfully!!")
-                                            .setIcon(android.R.drawable.ic_dialog_alert)
-                                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                                                @Override
-                                                public void onClick(DialogInterface dialog, int which) {
-                                                    finish();
-                                                    startActivity(new Intent(RegisterPage.this,LandingPageFarmer.class));
-                                                }
-                                            })
-                                            .show();
                                 }
 
                             }
