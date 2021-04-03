@@ -17,12 +17,12 @@ public class LandingPageCustomer extends AppCompatActivity {
 
     public void onShopClick(View view) {
         Intent intent = new Intent(this, ShopActivity.class);
-        startActivity(intent);
+        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
     }
 
     public void onAccountClick(View view) {
         Intent intent = new Intent(this, AccountPage.class);
-        startActivity(intent);
+        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
     }
 
     public void onDonateClick(View view) {
@@ -32,6 +32,6 @@ public class LandingPageCustomer extends AppCompatActivity {
 
     public void onContactClick(View view) {
         Intent intent = new Intent(this, ContactUsPage.class);
-        startActivity(intent);
+        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
     }
 }
