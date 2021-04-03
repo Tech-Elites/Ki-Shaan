@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ public class FarmerSell extends AppCompatActivity {
     Spinner spin, spin2;
     int quantity, price;
     String category, name;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
