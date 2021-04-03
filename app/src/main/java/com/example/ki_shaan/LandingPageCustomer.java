@@ -21,7 +21,7 @@ public class LandingPageCustomer extends AppCompatActivity {
     }
 
     public void onAccountClick(View view) {
-        Intent intent = new Intent(this, ContactUsPage.class);
+        Intent intent = new Intent(this, AccountPage.class);
         startActivity(intent);
     }
 
