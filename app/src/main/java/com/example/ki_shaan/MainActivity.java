@@ -12,6 +12,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         finish();
-        startActivity(new Intent(this, JoinPage.class));
+        startActivity(new Intent(this, LandingPageCustomer.class));
     }
 }
