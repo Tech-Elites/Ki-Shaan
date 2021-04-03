@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class LandingPageFarmer extends AppCompatActivity {
 
@@ -47,6 +48,8 @@ public class LandingPageFarmer extends AppCompatActivity {
     }
 
     public void farmerLandingCoop(View view) {
+        //for now
+        startActivity(new Intent(this,CreateJoinGrp.class));
     }
 
     public void farmerLandingWallet(View view) {

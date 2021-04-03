@@ -2,6 +2,7 @@ package com.example.ki_shaan;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -14,6 +15,8 @@ public class CreateJoinGrp extends AppCompatActivity {
     }
 
     public void onCreateGroupMode(View view) {
+        finish();
+        startActivity(new Intent(this,CreateGroupPage.class));
     }
 
     public void onJoinGroupMode(View view) {
