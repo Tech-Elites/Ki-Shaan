@@ -13,7 +13,7 @@ public class UserInfo {
         this.role = role;
         this.groupname = groupname;
     }
-    UserInfo()
+    public UserInfo()
     {}
     public HashMap<String, Object> getHashMap()
     {

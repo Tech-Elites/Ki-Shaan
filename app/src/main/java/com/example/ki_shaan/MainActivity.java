@@ -35,7 +35,9 @@ public class MainActivity extends AppCompatActivity {
                     int flag = 1;
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         if (u.getUid().compareTo(dataSnapshot.getKey()) == 0) {
+                            flag=0;
                             finish();
+
                             Intent i = new Intent(MainActivity.this, LandingPageCustomer.class);
                             startActivity(i, ActivityOptions.makeSceneTransitionAnimation(MainActivity.this).toBundle());
                             break;

@@ -118,21 +118,35 @@ public class RegisterPage extends AppCompatActivity {
                                         FirebaseDatabase.getInstance().getReference().child("products").child("pulses").child("uraddal").child(u.getUid()).setValue(pMap);
                                         FirebaseDatabase.getInstance().getReference().child("products").child("pulses").child("moongdal").child(u.getUid()).setValue(pMap);
                                         FirebaseDatabase.getInstance().getReference().child("accounts").child(u.getUid()).child("totalassets").setValue(0);
+                                        new AlertDialog.Builder(RegisterPage.this)
+                                                .setTitle("Success!!")
+                                                .setMessage("User Registered Successfully!!")
+                                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(DialogInterface dialog, int which) {
+                                                        finish();
+                                                        startActivity(new Intent(RegisterPage.this,LandingPageFarmer.class));
+                                                    }
+                                                })
+                                                .show();
 
                                     }
+                                    else{
+                                        new AlertDialog.Builder(RegisterPage.this)
+                                                .setTitle("Success!!")
+                                                .setMessage("User Registered Successfully!!")
+                                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(DialogInterface dialog, int which) {
+                                                        finish();
+                                                        startActivity(new Intent(RegisterPage.this,LandingPageCustomer.class));
+                                                    }
+                                                })
+                                                .show();
+                                    }
 
-                                    new AlertDialog.Builder(RegisterPage.this)
-                                            .setTitle("Success!!")
-                                            .setMessage("User Registered Successfully!!")
-                                            .setIcon(android.R.drawable.ic_dialog_alert)
-                                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                                                @Override
-                                                public void onClick(DialogInterface dialog, int which) {
-                                                    finish();
-                                                    startActivity(new Intent(RegisterPage.this,LandingPageFarmer.class));
-                                                }
-                                            })
-                                            .show();
                                 }
 
                             }

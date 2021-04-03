@@ -49,13 +49,15 @@ public class AccountPage extends AppCompatActivity {
                         public void onComplete(@NonNull Task<DataSnapshot> task) {
                             try {
                                 UserInfo u = task.getResult().getValue(UserInfo.class);
+                                t1.setText(u.firstname);
+                                Toast.makeText(AccountPage.this, u.firstname, Toast.LENGTH_LONG).show();
                             }
                             catch (Exception e){
                                 System.out.println("AEPI"+e);
                             }
-                            Toast.makeText(AccountPage.this, task.getResult().getValue().toString(), Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(AccountPage.this, task.getResult().getValue().toString(), Toast.LENGTH_SHORT).show();
                             System.out.print("AESI"+task.getResult().getValue().toString());
-                            //t1.setText(u.firstname);
+
                         }
                     }
             );

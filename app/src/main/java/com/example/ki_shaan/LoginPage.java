@@ -81,6 +81,7 @@ public class LoginPage extends AppCompatActivity {
                                             finish();
                                             Intent i = new Intent(LoginPage.this, LandingPageCustomer.class);
                                             startActivity(i, ActivityOptions.makeSceneTransitionAnimation(LoginPage.this).toBundle());
+                                            flag=0;
                                             break;
                                         }
                                     }
