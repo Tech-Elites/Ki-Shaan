@@ -13,7 +13,8 @@ public class UserInfo {
         this.role = role;
         this.groupname = groupname;
     }
-
+    UserInfo()
+    {}
     public HashMap<String, Object> getHashMap()
     {
         HashMap<String,Object> newUser=new HashMap<>();

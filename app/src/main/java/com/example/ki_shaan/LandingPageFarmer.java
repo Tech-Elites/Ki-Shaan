@@ -43,6 +43,7 @@ public class LandingPageFarmer extends AppCompatActivity {
 
 
     public void farmerLandingSell(View view) {
+        startActivity(new Intent(this,FarmerSell.class));
     }
 
     public void farmerLandingCoop(View view) {

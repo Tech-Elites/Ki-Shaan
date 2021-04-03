@@ -19,13 +19,20 @@
             android:id="@+id/textView"
             android:layout_width="369dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="350dp"
+            android:layout_marginBottom="10dp"
             android:padding="10dp"
             android:text="Log in"
             android:fontFamily="@font/scriptmt"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="50dp" />
+
+        <ProgressBar
+            android:id="@+id/progressBarLogin"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="270dp"
+            android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/loginPageEmail"
