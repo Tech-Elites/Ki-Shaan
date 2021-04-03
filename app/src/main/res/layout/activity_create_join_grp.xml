@@ -4,6 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateJoinGrp">
+    tools:context=".CreateJoinGrp"
+    android:background="@drawable/back1"
+    >
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="60dp"
+            android:text="Oops!!\n\nYou are not in a co operation right now, create or join a group!!"
+            android:textSize="30dp"
+            android:padding="10dp"
+            android:textColor="#000"
+            android:fontFamily="@font/scriptmt"/>
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:fontFamily="@font/scriptmt"
+            android:textAllCaps="false"
+            android:textSize="30dp"
+            android:layout_marginBottom="20dp"
+            android:text="Create a group" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:fontFamily="@font/scriptmt"
+            android:textAllCaps="false"
+            android:textSize="30dp"
+            android:text="Join a group" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
