@@ -3,6 +3,7 @@ package com.example.ki_shaan;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 
 public class ShopActivity extends AppCompatActivity {
 
@@ -13,5 +14,9 @@ public class ShopActivity extends AppCompatActivity {
     }
 
 
+    public void customerShopFilter(View view) {
+    }
 
+    public void customerShopSearch(View view) {
+    }
 }

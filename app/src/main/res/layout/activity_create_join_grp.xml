@@ -15,7 +15,7 @@
         android:padding="20dp">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/createJoinGroupHeadingText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -27,6 +27,7 @@
             android:fontFamily="@font/scriptmt"/>
 
         <Button
+            android:onClick="onCreateGroupMode"
             android:id="@+id/button4"
             android:layout_width="match_parent"
             android:layout_height="90dp"
@@ -37,6 +38,7 @@
             android:text="Create a group" />
 
         <Button
+            android:onClick="onJoinGroupMode"
             android:id="@+id/button5"
             android:layout_width="match_parent"
             android:layout_height="90dp"

@@ -29,7 +29,7 @@
             android:layout_marginBottom="20dp"/>
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/createGroupName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -40,7 +40,7 @@
             android:layout_marginBottom="40dp"/>
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/createGroupMemberCap"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -51,7 +51,7 @@
             android:layout_marginBottom="40dp"/>
 
         <EditText
-            android:id="@+id/editTextTextPersonName3"
+            android:id="@+id/createGroupJoinCode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -61,7 +61,7 @@
             android:textSize="20dp"
             android:layout_marginBottom="40dp"/>
         <EditText
-            android:id="@+id/editTextTextPersonName4"
+            android:id="@+id/createGroupConfirmCode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -72,6 +72,7 @@
             android:layout_marginBottom="40dp"/>
 
         <Button
+            android:onClick="onClickCreateGroup"
             android:id="@+id/button6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

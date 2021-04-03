@@ -26,7 +26,7 @@
         <TextView
             android:layout_marginTop="40dp"
 
-            android:id="@+id/textView9"
+            android:id="@+id/accountInfoGroupTotalAsset"
             android:layout_width="match_parent"
             android:textSize="30dp"
             android:fontFamily="@font/scriptmt"
@@ -39,7 +39,7 @@
         <TextView
             android:layout_marginTop="40dp"
 
-            android:id="@+id/textView10"
+            android:id="@+id/accountInfoGroupInfo"
             android:layout_width="match_parent"
             android:textSize="30dp"
             android:fontFamily="@font/scriptmt"

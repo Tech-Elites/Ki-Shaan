@@ -10,7 +10,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/indiAccountLayoutItemName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Item name"
@@ -22,7 +22,7 @@
             android:fontFamily="@font/scriptmt"
             />
         <TextView
-            android:id="@+id/textView14"
+            android:id="@+id/indiAccountLayoutPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Price of the product-"
@@ -33,7 +33,7 @@
             android:fontFamily="@font/scriptmt"
             />
         <TextView
-            android:id="@+id/textView15"
+            android:id="@+id/indiAccountLayoutQuantity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Quantity-"
