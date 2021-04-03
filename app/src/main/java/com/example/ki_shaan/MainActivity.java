@@ -16,10 +16,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, LoginPage.class));
     }
 
-    public void RegisterClick(View view)
-    {
-        startActivity(new Intent(this,RegisterPage.class));
-    }
 
 
 }

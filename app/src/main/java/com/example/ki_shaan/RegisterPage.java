@@ -5,6 +5,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.TextUtils;
@@ -127,7 +128,8 @@ public class RegisterPage extends AppCompatActivity {
                                             .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialog, int which) {
-
+                                                    finish();
+                                                    startActivity(new Intent(RegisterPage.this,LandingPageFarmer.class));
                                                 }
                                             })
                                             .show();
