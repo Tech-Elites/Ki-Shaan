@@ -14,7 +14,7 @@
         <activity android:name=".EachShopItemPage" />
         <activity android:name=".AccountPage" />
         <activity android:name=".ShopActivity" />
-        <activity android:name=".ContactUsPage" android:exported="true"/>
+        <activity android:name=".ContactUsPage" />
         <activity android:name=".DonatePage" />
         <activity android:name=".CreateJoinGrp" />
         <activity android:name=".LandingPageCustomer" />
