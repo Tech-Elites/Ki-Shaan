@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CustomerPayment">
+        <LinearLayout
+            android:background="#2a2742"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="#d34958"
+                android:orientation="vertical"
+                android:paddingHorizontal="45dp"
+                android:paddingVertical="20dp">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/payment"
+                    android:padding="10dp" />
+
+            </LinearLayout>
+
+            <EditText
+
+                android:layout_marginTop="20dp"
+                android:id="@+id/cardno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:ems="10"
+                android:gravity="bottom"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:fontFamily="@font/scriptmt"
+                android:textColorHint="#C6B8B8"
+                android:textSize="30dp"
+                android:hint="Enter the cardno" />
+
+            <EditText
+                android:id="@+id/Expiry"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/scriptmt"
+                android:textSize="30dp"
+                android:longClickable="false"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textColorHint="#C6B8B8"
+                android:hint="Select the expiry Date"/>
+
+            <EditText
+
+                android:layout_marginTop="20dp"
+                android:id="@+id/cvv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:ems="10"
+                android:gravity="bottom"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:fontFamily="@font/scriptmt"
+                android:textColorHint="#C6B8B8"
+                android:textSize="30dp"
+                android:hint="Enter CVV" />
+
+            <Button
+                android:textColor="@color/purple"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/red"
+                android:fontFamily="@font/scriptmt"
+                android:text="Pay"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="100dp"
+                android:textAllCaps="false"
+                android:textSize="25dp" />
+
+        </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
