@@ -9,11 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.KiShaan">
-        <activity android:name=".CreateJoinGrp"></activity>
+        <activity android:name=".EachShopItemPage"></activity>
+        <activity android:name=".AccountPage" />
+        <activity android:name=".ShopActivity" />
+        <activity android:name=".ContactUsPage" />
+        <activity android:name=".DonatePage" />
+        <activity android:name=".CreateJoinGrp" />
         <activity android:name=".LandingPageCustomer" />
         <activity android:name=".LandingPageFarmer" />
         <activity android:name=".RegisterPage" />
         <activity android:name=".LoginPage" />
+        <activity android:name=".AccountInfoGroupFarmerCommon" />
+        <activity android:name=".BorrowMoneyFarmer" />
+        <activity android:name=".CoopLandingPage" />
+        <activity android:name=".CreateGroupPage" />
+        <activity android:name=".FarmerAccountIndi" />
+        <activity android:name=".JoinPage" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
