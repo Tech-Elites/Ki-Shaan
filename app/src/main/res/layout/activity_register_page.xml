@@ -62,6 +62,8 @@
             android:ems="10"
             android:inputType="phone" />
 
+
+
         <EditText
             android:hint="Email Address"
             android:id="@+id/registerEmail"
@@ -109,13 +111,14 @@
                 android:id="@+id/registerRadioFarmer"
                 android:layout_width="177dp"
                 android:layout_height="wrap_content"
-                android:text="Farmer" />
+                android:text="farmer"
+                android:checked="true"/>
 
             <RadioButton
                 android:id="@+id/registerRadioCustomer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Customer" />
+                android:text="customer" />
         </RadioGroup>
 
         <Button
@@ -128,6 +131,11 @@
             android:layout_marginTop="10dp"
             android:textSize="25dp"
             android:text="Register" />
+        <ProgressBar
+            android:id="@+id/progressBarRegister"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
