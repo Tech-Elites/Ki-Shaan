@@ -109,7 +109,8 @@
                 android:id="@+id/registerRadioFarmer"
                 android:layout_width="177dp"
                 android:layout_height="wrap_content"
-                android:text="Farmer" />
+                android:text="Farmer"
+                android:checked="true"/>
 
             <RadioButton
                 android:id="@+id/registerRadioCustomer"
