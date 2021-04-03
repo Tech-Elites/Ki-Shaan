@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "26074140673",
+    "project_id": "ki-shaan",
+    "storage_bucket": "ki-shaan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26074140673:android:ddf98e5ec3426d8776f000",
+        "android_client_info": {
+          "package_name": "com.example.ki_shaan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "26074140673-k3v7duvi7pn3sn03kkru96m85kvs1o4a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoMXojCJPqxwJepzi_1FS2WjV9CbCK2RQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "26074140673-k3v7duvi7pn3sn03kkru96m85kvs1o4a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
