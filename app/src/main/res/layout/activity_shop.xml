@@ -6,4 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".ShopActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="164dp">
+
+        <TextView
+            android:id="@+id/textView7"
+            android:textColor="@color/purple"
+            android:fontFamily="@font/scriptmt"
+            android:textSize="40dp"
+            android:background="@color/red"
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="List of items:" />
+
+        <ListView
+            android:id="@+id/customerShopListView"
+            android:background="@color/purple"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
