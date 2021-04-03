@@ -35,7 +35,7 @@
             >
 
             <EditText
-                android:id="@+id/editTextTextPersonName5"
+                android:id="@+id/joinPageSearchBar"
                 android:layout_width="match_parent"
                 android:layout_marginRight="20dp"
                 android:layout_height="wrap_content"
@@ -58,6 +58,7 @@
         </LinearLayout>
 
         <ListView
+            android:id="@+id/joinPageListView"
             android:layout_width="match_parent"
             android:layout_height="560dp" />
     </LinearLayout>

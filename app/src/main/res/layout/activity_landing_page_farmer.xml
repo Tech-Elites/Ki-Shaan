@@ -26,6 +26,7 @@
             android:padding="10dp">
 
             <Button
+                android:onClick="farmerLandingSell"
                 android:id="@+id/button8"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
@@ -38,6 +39,7 @@
                 />
 
             <Button
+                android:onClick="farmerLandingCoop"
                 android:id="@+id/button9"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
@@ -56,6 +58,7 @@
             android:padding="10dp">
 
             <Button
+                android:onClick="farmerLandingWallet"
                 android:id="@+id/button10"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
@@ -67,6 +70,7 @@
                 android:textSize="40dp" />
 
             <Button
+                android:onClick="farmerLandingAccount"
                 android:id="@+id/button11"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
