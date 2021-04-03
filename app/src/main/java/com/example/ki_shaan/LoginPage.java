@@ -34,41 +34,38 @@ public class LoginPage extends AppCompatActivity {
         setContentView(R.layout.activity_login_page);
         firebaseAuth = FirebaseAuth.getInstance();
 
-//        FirebaseUser u= firebaseAuth.getCurrentUser();
-//        if(u!=null)
-//        {
-//            DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("userinfo").child("customers");
-//            databaseReference.addValueEventListener(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                    int flag=1;
-//                    for(DataSnapshot dataSnapshot:snapshot.getChildren())
-//                    {
-//                        if(u.getUid().compareTo(dataSnapshot.getKey())==0)
-//                        {
-//                            flag=0;
-//                            Intent i = new Intent(LoginPage.this, UserLandingPage.class);
-//                            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                            startActivity(i);
-//                            break;
-//                        }
-//                    }
-//                    if(flag==1)
-//                    {
-//
-//                        //vendor code here
-//                        //for now signing out
-//                        Intent i = new Intent(LoginPage.this, VendorLanding.class);
-//                        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                        startActivity(i);
-//                    }
-//                }
-//
-//                @Override
-//                public void onCancelled(@NonNull DatabaseError error) {
-//
-//                }
-//            });
+        FirebaseUser u = firebaseAuth.getCurrentUser();
+        if (u != null) {
+            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("userinfo").child("customer");
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    int flag = 1;
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        if (u.getUid().compareTo(dataSnapshot.getKey()) == 0) {
+                            flag = 0;
+                            Intent i = new Intent(LoginPage.this, LandingPageCustomer.class);
+                            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(i, ActivityOptions.makeSceneTransitionAnimation(LoginPage.this).toBundle());
+                            break;
+                        }
+                    }
+                    if (flag == 1) {
+
+                        //vendor code here
+                        //for now signing out
+                        Intent i = new Intent(LoginPage.this, LandingPageFarmer.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(i, ActivityOptions.makeSceneTransitionAnimation(LoginPage.this).toBundle());
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
     }
 
     public void loginPageLogin(View view) {
@@ -97,42 +94,39 @@ public class LoginPage extends AppCompatActivity {
                     if(task.isSuccessful())
                     {
                         Toast.makeText(LoginPage.this, "Logged in", Toast.LENGTH_SHORT).show();
-//                        FirebaseUser u= firebaseAuth.getCurrentUser();
-//                        if(u!=null)
-//                        {
-//                            DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("userinfo").child("customers");
-//                            databaseReference.addValueEventListener(new ValueEventListener() {
-//                                @Override
-//                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                                    int flag=1;
-//                                    for(DataSnapshot dataSnapshot:snapshot.getChildren())
-//                                    {
-//                                        if(u.getUid().compareTo(dataSnapshot.getKey())==0)
-//                                        {
-//                                            flag=0;
-//                                            Intent i = new Intent(LoginPage.this, UserLandingPage.class);
-//                                            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                                            startActivity(i);
-//                                            break;
-//                                        }
-//                                    }
-//                                    if(flag==1)
-//                                    {
-//
-//                                        //vendor code here
-//                                        //for now signing out
-//                                        Intent i = new Intent(LoginPage.this, VendorLanding.class);
-//                                        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                                        startActivity(i);
-//                                    }
-//                                }
-//
-//                                @Override
-//                                public void onCancelled(@NonNull DatabaseError error) {
-//
-//                                }
-//                            });
-//                        }
+                        FirebaseUser u= firebaseAuth.getCurrentUser();
+                        if(u!=null)
+                        {
+                            DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("userinfo").child("customer");
+                            databaseReference.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    int flag=1;
+                                    for(DataSnapshot dataSnapshot:snapshot.getChildren())
+                                    {
+                                        if(u.getUid().compareTo(dataSnapshot.getKey())==0)
+                                        {
+                                            flag=0;
+                                            Intent i = new Intent(LoginPage.this, LandingPageCustomer.class);
+                                            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                            startActivity(i, ActivityOptions.makeSceneTransitionAnimation(LoginPage.this).toBundle());
+                                            break;
+                                        }
+                                    }
+                                    if(flag==1)
+                                    {
+                                        Intent i = new Intent(LoginPage.this, LandingPageFarmer.class);
+                                        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                        startActivity(i, ActivityOptions.makeSceneTransitionAnimation(LoginPage.this).toBundle());
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+                        }
                     }
                     else
                     {
