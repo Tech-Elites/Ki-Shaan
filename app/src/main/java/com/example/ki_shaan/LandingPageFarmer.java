@@ -27,6 +27,7 @@ import org.json.JSONObject;
 public class LandingPageFarmer extends AppCompatActivity {
 
     ProgressBar p;
+    public static String grpName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +68,7 @@ public class LandingPageFarmer extends AppCompatActivity {
         {
             p.setVisibility(View.VISIBLE);
             DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("groups");
-            databaseReference.addValueEventListener(new ValueEventListener() {
+            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     int flag=0;
@@ -82,7 +83,7 @@ public class LandingPageFarmer extends AppCompatActivity {
                                     if(dataSnapshot2.getValue().toString().compareTo(firebaseUser.getUid())==0)
                                     {
                                         flag=1;
-
+                                        grpName=dataSnapshot.getKey();
                                     }
                                 }
                             }

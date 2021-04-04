@@ -51,8 +51,9 @@
                     android:layout_height="160dp"
                     android:layout_marginRight="20dp"
                     android:layout_weight="1"
-                    android:fontFamily="@font/scriptmt"
                     android:drawableTop="@drawable/ic_baseline_account_box_24"
+                    android:fontFamily="@font/scriptmt"
+                    android:onClick="onClickAccount"
                     android:text="Accounts"
                     android:textAllCaps="false"
                     android:textSize="20dp" />

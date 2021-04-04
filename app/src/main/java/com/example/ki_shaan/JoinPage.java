@@ -62,6 +62,7 @@ public class JoinPage extends AppCompatActivity {
                     if(u!=null)
                     {
                         FirebaseDatabase.getInstance().getReference().child("groups").child(namesOfAllGrps.get(which)).child("userids").push().setValue(u.getUid());
+                        LandingPageFarmer.grpName=namesOfAllGrps.get(which);
                         finish();
                         new AlertDialog.Builder(JoinPage.this)
                                 .setIcon(android.R.drawable.ic_dialog_alert)

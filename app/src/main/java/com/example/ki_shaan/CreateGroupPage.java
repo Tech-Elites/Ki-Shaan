@@ -63,7 +63,7 @@ public class CreateGroupPage extends AppCompatActivity {
                             Toast.makeText(CreateGroupPage.this, "Here!", Toast.LENGTH_SHORT).show();
                             if(task.getResult().getValue()==null)
                             {
-
+                                LandingPageFarmer.grpName=gName;
                                 FirebaseDatabase.getInstance().getReference().child("groups").child(gName).child("userids").push().setValue(u.getUid());
                                 FirebaseDatabase.getInstance().getReference().child("groups").child(gName).child("ta").setValue(0);
                                 FirebaseDatabase.getInstance().getReference().child("groups").child(gName).child("te").setValue(0);
