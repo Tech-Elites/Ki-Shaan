@@ -50,50 +50,63 @@ public class CreateGroupPage extends AppCompatActivity {
         }
         else
         {
-            FirebaseUser u= FirebaseAuth.getInstance().getCurrentUser();
-            if(u!=null)
+            if(gCode.compareTo(cGcodee)!=0)
             {
-                pr.setVisibility(View.VISIBLE);
-                FirebaseDatabase.getInstance().getReference().child("groups").child(gName).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DataSnapshot> task) {
-                        if(task.isSuccessful())
-                        {
-                            pr.setVisibility(View.INVISIBLE);
-                            Toast.makeText(CreateGroupPage.this, "Here!", Toast.LENGTH_SHORT).show();
-                            if(task.getResult().getValue()==null)
-                            {
-                                LandingPageFarmer.grpName=gName;
-                                FirebaseDatabase.getInstance().getReference().child("groups").child(gName).child("userids").push().setValue(u.getUid());
-                                FirebaseDatabase.getInstance().getReference().child("groups").child(gName).child("ta").setValue(0);
-                                FirebaseDatabase.getInstance().getReference().child("groups").child(gName).child("te").setValue(0);
-                                FirebaseDatabase.getInstance().getReference().child("groups").child(gName).child("gCode").setValue(gCode);
-                                new AlertDialog.Builder(CreateGroupPage.this)
-                                        .setIcon(android.R.drawable.ic_dialog_alert)
-                                        .setTitle("Success!!")
-                                        .setMessage("The grp name has been registered!!")
-                                        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialog, int which) {
-                                                finish();
-                                            }
-                                        })
-                                        .show();
+                new AlertDialog.Builder(this)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle("Oops!!")
+                        .setMessage("Passwords do not match")
+                        .show();
 
-                                finish();
-                            }
-                            else
+            }
+            else
+            {
+                FirebaseUser u= FirebaseAuth.getInstance().getCurrentUser();
+                if(u!=null)
+                {
+                    pr.setVisibility(View.VISIBLE);
+                    FirebaseDatabase.getInstance().getReference().child("groups").child(gName).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+                            if(task.isSuccessful())
                             {
-                                new AlertDialog.Builder(CreateGroupPage.this)
-                                        .setIcon(android.R.drawable.ic_dialog_alert)
-                                        .setTitle("Oops!!")
-                                        .setMessage("Choose another name!! This name already exists!")
-                                        .show();
+                                pr.setVisibility(View.INVISIBLE);
+                                Toast.makeText(CreateGroupPage.this, "Here!", Toast.LENGTH_SHORT).show();
+                                if(task.getResult().getValue()==null)
+                                {
+                                    LandingPageFarmer.grpName=gName;
+                                    FirebaseDatabase.getInstance().getReference().child("groups").child(gName).child("userids").push().setValue(u.getUid());
+                                    FirebaseDatabase.getInstance().getReference().child("groups").child(gName).child("ta").setValue(0);
+                                    FirebaseDatabase.getInstance().getReference().child("groups").child(gName).child("te").setValue(0);
+                                    FirebaseDatabase.getInstance().getReference().child("groups").child(gName).child("gCode").setValue(gCode);
+                                    new AlertDialog.Builder(CreateGroupPage.this)
+                                            .setIcon(android.R.drawable.ic_dialog_alert)
+                                            .setTitle("Success!!")
+                                            .setMessage("The grp name has been registered!!")
+                                            .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    finish();
+                                                }
+                                            })
+                                            .show();
 
+
+                                }
+                                else
+                                {
+                                    new AlertDialog.Builder(CreateGroupPage.this)
+                                            .setIcon(android.R.drawable.ic_dialog_alert)
+                                            .setTitle("Oops!!")
+                                            .setMessage("Choose another name!! This name already exists!")
+                                            .show();
+
+                                }
                             }
                         }
-                    }
-                });
+                    });
+                }
+
             }
 
         }
