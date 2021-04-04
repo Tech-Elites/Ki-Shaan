@@ -96,9 +96,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="160dp"
                     android:layout_weight="1"
+                    android:drawableTop="@drawable/ic_grp_request"
                     android:fontFamily="@font/scriptmt"
                     android:text="Requests"
-                    android:drawableTop="@drawable/ic_grp_request"
+                    android:onClick="requests"
                     android:textAllCaps="false"
                     android:textSize="20dp" />
             </LinearLayout>
