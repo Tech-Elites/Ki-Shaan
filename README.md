@@ -3,15 +3,15 @@ The "Ki-shaan" app aims to provide a better marketplace for the farmers by remov
 
 ## App Features 
 The various unique functionalities provided by our app are as follows:-
-#Interface for the farmers:-
-●	All the farmers registered in the app can put up their crops for sale with their prices and quantity available. All the crops put up by different farmers will be visible to every customer for buying the same. Through this, the individual farmers can get a reasonable price for their crops by directly selling to the customers. 
-●	Separate accounts for each farmer which shows the total sales for their crops.
-●	A farmer can form a group or cooperative that will work collectively to sell their crops and remove any involvement of these middlemen and local traders.
-●	Each cooperation will be secured and joinable only on the basis of a unique code. 
-●	A separate account for each cooperative that holds up a certain amount(10%) of profits made by the farmers belonging to the group.
-●	In future, if a farmer belonging to the cooperative requires some amount of money to deal with their debts,or buy good seeds,fertilizers,etc, the farmer can make a request to the cooperative for lending the same.(without any interests upto a certain limit)
-●	The request of the farmer will be voted out by all the other members of the cooperation and if the majority of members agree, the amount is lended to the farmer.
-●	Also, our app provides the farmers to make them aware of the latest announcements and schemes started by the Indian government.
+#Interface for the farmers:-<br>
+●	All the farmers registered in the app can put up their crops for sale with their prices and quantity available. All the crops put up by different farmers will be visible to every customer for buying the same. Through this, the individual farmers can get a reasonable price for their crops by directly selling to the customers. <br>
+●	Separate accounts for each farmer which shows the total sales for their crops.<br>
+●	A farmer can form a group or cooperative that will work collectively to sell their crops and remove any involvement of these middlemen and local traders.<br>
+●	Each cooperation will be secured and joinable only on the basis of a unique code. <br>
+●	A separate account for each cooperative that holds up a certain amount(10%) of profits made by the farmers belonging to the group.<br>
+●	In future, if a farmer belonging to the cooperative requires some amount of money to deal with their debts,or buy good seeds,fertilizers,etc, the farmer can make a request to the cooperative for lending the same.(without any interests upto a certain limit)<br>
+●	The request of the farmer will be voted out by all the other members of the cooperation and if the majority of members agree, the amount is lended to the farmer.<br>
+●	Also, our app provides the farmers to make them aware of the latest announcements and schemes started by the Indian government.<br><br>
 
 Our app will not only help to provide remunerative prices to the farmers for their crops but also help them deal with any other financial deficiencies they may face.
 
