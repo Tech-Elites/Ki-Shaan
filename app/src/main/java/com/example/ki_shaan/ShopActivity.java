@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -31,6 +32,7 @@ public class ShopActivity extends AppCompatActivity {
     ArrayList<Integer> qtyavail;
     String tempSeller;
     int tempqty;
+    ProgressBar p;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,8 @@ public class ShopActivity extends AppCompatActivity {
         allProducts = new ArrayList<>();
         sellerId = new ArrayList<>();
         qtyavail = new ArrayList<>();
+        p=findViewById(R.id.shopActivityProgress);
+        p.setVisibility(View.VISIBLE);
         getGrain();
 
 
@@ -184,6 +188,7 @@ public class ShopActivity extends AppCompatActivity {
         lv = findViewById(R.id.customerShopListView);
         adapter = new ShopItemsCustomAdapter(this, allProducts);
         lv.setAdapter(adapter);
+        p.setVisibility(View.INVISIBLE);
         lv.setOnItemClickListener(
                 new AdapterView.OnItemClickListener() {
                     @Override
@@ -194,6 +199,7 @@ public class ShopActivity extends AppCompatActivity {
                         intent.putExtra("sellerid",sellerId.get(position));
                         intent.putExtra("qtyavail",qtyavail.get(position));
                         startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(ShopActivity.this).toBundle());
+                        finish();
                     }
                 }
         );

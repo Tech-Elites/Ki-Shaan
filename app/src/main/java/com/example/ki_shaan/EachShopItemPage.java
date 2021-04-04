@@ -56,6 +56,7 @@ public class EachShopItemPage extends AppCompatActivity {
             intent.putExtra("sellerid",sellerid);
             intent.putExtra("userQty",userQty);
             startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+            finish();
         }
     }
 }

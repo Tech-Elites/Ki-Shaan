@@ -12,6 +12,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -45,10 +46,12 @@ public class CustomerPayment extends AppCompatActivity {
     int userQty;
     String groupName="";
     int current, curqty;
+    ProgressBar p;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_payment);
+        p=findViewById(R.id.paymentProgress);
         Bundle bundle = getIntent().getExtras();
         name = bundle.getString("name");
         price = bundle.getInt("price");
@@ -79,8 +82,7 @@ public class CustomerPayment extends AppCompatActivity {
         cardno = t1.getText().toString();
         edate = t2.getText().toString();
         cvv = t3.getText().toString();
-//        pay(cardno,edate,cvv);
-        addToAccounts();
+        pay(cardno,edate,cvv);
     }
 
     void pay(String cardno, String edate,String cvv) {
@@ -99,8 +101,8 @@ public class CustomerPayment extends AppCompatActivity {
                     .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            p.setVisibility(View.VISIBLE);
                             addToAccounts();
-//                            finish();
                         }
                     })
                     .show();
@@ -148,7 +150,7 @@ public class CustomerPayment extends AppCompatActivity {
                                                 try {
                                                     JSONObject js = new JSONObject(task.getResult().getValue().toString());
                                                     curqty = js.getInt("quantityavailable");
-                                                    Toast.makeText(CustomerPayment.this, current+" ", Toast.LENGTH_SHORT).show();
+//                                                    Toast.makeText(CustomerPayment.this, current+" ", Toast.LENGTH_SHORT).show();
                                                 } catch (JSONException e) {
                                                     e.printStackTrace();
                                                 }
@@ -180,7 +182,7 @@ public class CustomerPayment extends AppCompatActivity {
 
         void addGroupAsset(){
 
-            Toast.makeText(this, "LODU", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "LODU", Toast.LENGTH_SHORT).show();
             //FirebaseDatabase.getInstance().getReference().child("groups")
             DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("groups");
             databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -212,7 +214,7 @@ public class CustomerPayment extends AppCompatActivity {
                                                                 e.printStackTrace();
                                                             }
 
-                                                            Toast.makeText(CustomerPayment.this, task.getResult().getValue()+"", Toast.LENGTH_SHORT).show();
+//                                                            Toast.makeText(CustomerPayment.this, task.getResult().getValue()+"", Toast.LENGTH_SHORT).show();
 //                                        groupAsset+=totalAssets;
 //
 
@@ -220,8 +222,10 @@ public class CustomerPayment extends AppCompatActivity {
                                                     }
                                             );
                                         }
-
+                                        p.setVisibility(View.INVISIBLE);
+                                        finish();
                                         break;
+
                                     }
                                 }
                             }
@@ -241,7 +245,7 @@ public class CustomerPayment extends AppCompatActivity {
 
                 }
             });
-            Toast.makeText(CustomerPayment.this, "Hell", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(CustomerPayment.this, "Hell", Toast.LENGTH_SHORT).show();
 
         }
 
