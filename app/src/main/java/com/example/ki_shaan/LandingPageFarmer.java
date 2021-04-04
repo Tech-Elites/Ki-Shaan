@@ -75,7 +75,7 @@ public class LandingPageFarmer extends AppCompatActivity {
                     {
                         for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren())
                         {
-                            if(dataSnapshot1.getKey().compareTo("te")!=0&&dataSnapshot1.getKey().compareTo("ta")!=0)
+                            if(dataSnapshot1.getKey().compareTo("te")!=0&&dataSnapshot1.getKey().compareTo("ta")!=0&&dataSnapshot1.getKey().compareTo("gCode")!=0)
                             {
                                 for(DataSnapshot dataSnapshot2:dataSnapshot1.getChildren())
                                 {
