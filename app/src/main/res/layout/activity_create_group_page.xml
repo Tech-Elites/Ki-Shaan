@@ -80,5 +80,11 @@
             android:fontFamily="@font/scriptmt"
             android:textAllCaps="false"
             android:textSize="30dp"/>
+
+        <ProgressBar
+            android:id="@+id/progressBarCreateGrp"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
