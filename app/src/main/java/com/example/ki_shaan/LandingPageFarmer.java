@@ -117,5 +117,7 @@ public class LandingPageFarmer extends AppCompatActivity {
     }
 
     public void farmerLandingAccount(View view) {
+        Intent intent = new Intent(this, FarmerAccountIndi.class);
+        startActivity(intent);
     }
 }
