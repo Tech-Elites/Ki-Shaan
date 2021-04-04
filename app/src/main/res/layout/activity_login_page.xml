@@ -31,8 +31,15 @@
             android:id="@+id/progressBarLogin"
             style="?android:attr/progressBarStyle"
             android:layout_width="match_parent"
-            android:layout_marginBottom="270dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/ic_baseline_person_243" />
 
         <EditText
             android:id="@+id/loginPageEmail"

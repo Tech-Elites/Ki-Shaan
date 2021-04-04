@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
         p=findViewById(R.id.progressBarMainActivity);
         FirebaseUser u = FirebaseAuth.getInstance().getCurrentUser();
         if (u != null) {
