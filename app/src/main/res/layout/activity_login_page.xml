@@ -80,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#FFFFFF"
-            android:text="Need a account? Click here"
+            android:text="Need an account? Click here"
             android:textColor="#000000" />
     </LinearLayout>
 
