@@ -3,6 +3,7 @@ package com.example.ki_shaan;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -91,11 +92,13 @@ public class LandingPageFarmer extends AppCompatActivity {
                     }
                     if(flag==1)
                     {
-                        startActivity(new Intent(LandingPageFarmer.this,CoopLandingPage.class));
+                        Intent intent = (new Intent(LandingPageFarmer.this,CoopLandingPage.class));
+                        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(LandingPageFarmer.this).toBundle());
                     }
                     else
                     {
-                        startActivity(new Intent(LandingPageFarmer.this,CreateJoinGrp.class));
+                        Intent intent = (new Intent(LandingPageFarmer.this,CreateJoinGrp.class));
+                        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(LandingPageFarmer.this).toBundle());
                     }
                     p.setVisibility(View.INVISIBLE);
                 }
@@ -114,10 +117,12 @@ public class LandingPageFarmer extends AppCompatActivity {
     }
 
     public void farmerLandingWallet(View view) {
+        Intent intent = new Intent(this, FarmerAccountIndi.class);
+        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
     }
 
     public void farmerLandingAccount(View view) {
-        Intent intent = new Intent(this, FarmerAccountIndi.class);
-        startActivity(intent);
+        Intent intent = new Intent(this, FarmerAccountDetails.class);
+        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
     }
 }

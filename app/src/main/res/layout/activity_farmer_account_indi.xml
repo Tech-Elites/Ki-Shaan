@@ -30,7 +30,7 @@
             android:background="#000"
             android:fontFamily="@font/scriptmt"
             android:gravity="center_horizontal"
-            android:text="Account"
+            android:text="Wallet"
             android:textColor="#fff"
             android:textSize="60dp" />
 
