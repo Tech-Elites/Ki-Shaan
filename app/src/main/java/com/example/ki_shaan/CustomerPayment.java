@@ -34,7 +34,8 @@ import java.util.HashMap;
 public class CustomerPayment extends AppCompatActivity {
     String cardno;
     String edate;
-    String cvv;int flag = 0;
+    String cvv;
+    int flag = 0;
     int groupAsset;
     EditText expirydate;
     int year,month,day;
@@ -179,9 +180,10 @@ public class CustomerPayment extends AppCompatActivity {
 
         void addGroupAsset(){
 
-            System.out.println("LODU");
+            Toast.makeText(this, "LODU", Toast.LENGTH_SHORT).show();
+            //FirebaseDatabase.getInstance().getReference().child("groups")
             DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("groups");
-            databaseReference.addValueEventListener(new ValueEventListener() {
+            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
 
@@ -193,8 +195,32 @@ public class CustomerPayment extends AppCompatActivity {
                                     if (dataSnapshot2.getValue().toString().compareTo(sellerid) == 0) {
 
                                         flag = 1;
-                                        System.out.println("AXYT"+flag);
+                                        //Toast.makeText(CustomerPayment.this, "Hell", Toast.LENGTH_SHORT).show();
                                         groupName = dataSnapshot.getKey();
+                                        if (flag == 1) {
+                                            //Toast.makeText(CustomerPayment.this, groupName, Toast.LENGTH_SHORT).show();
+                                            FirebaseDatabase.getInstance().getReference().child("groups").child(groupName).get().addOnCompleteListener(
+                                                    new OnCompleteListener<DataSnapshot>() {
+                                                        @Override
+                                                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+//                                        int totalAssets = Integer.parseInt(task.getResult().getValue().toString());
+                                                            try {
+                                                                JSONObject js = new JSONObject(task.getResult().getValue().toString());
+                                                                groupAsset+=js.getInt("ta");
+                                                                FirebaseDatabase.getInstance().getReference().child("groups").child(groupName).child("ta").setValue(groupAsset);
+                                                            } catch (JSONException e) {
+                                                                e.printStackTrace();
+                                                            }
+
+                                                            Toast.makeText(CustomerPayment.this, task.getResult().getValue()+"", Toast.LENGTH_SHORT).show();
+//                                        groupAsset+=totalAssets;
+//
+
+                                                        }
+                                                    }
+                                            );
+                                        }
+
                                         break;
                                     }
                                 }
@@ -215,29 +241,8 @@ public class CustomerPayment extends AppCompatActivity {
 
                 }
             });
-            if (flag == 1) {
-                //Toast.makeText(CustomerPayment.this, groupName, Toast.LENGTH_SHORT).show();
-                FirebaseDatabase.getInstance().getReference().child("groups").child(groupName).get().addOnCompleteListener(
-                        new OnCompleteListener<DataSnapshot>() {
-                            @Override
-                            public void onComplete(@NonNull Task<DataSnapshot> task) {
-//                                        int totalAssets = Integer.parseInt(task.getResult().getValue().toString());
-                                try {
-                                    JSONObject js = new JSONObject(task.getResult().getValue().toString());
-                                    groupAsset+=js.getInt("ta");
-                                            FirebaseDatabase.getInstance().getReference().child("groups").child(groupName).child("ta").setValue(groupAsset);
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                }
+            Toast.makeText(CustomerPayment.this, "Hell", Toast.LENGTH_SHORT).show();
 
-                                Toast.makeText(CustomerPayment.this, task.getResult().getValue()+"", Toast.LENGTH_SHORT).show();
-//                                        groupAsset+=totalAssets;
-//
-
-                            }
-                        }
-                );
-            }
         }
 
 
