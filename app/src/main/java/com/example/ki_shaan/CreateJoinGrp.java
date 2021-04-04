@@ -20,5 +20,7 @@ public class CreateJoinGrp extends AppCompatActivity {
     }
 
     public void onJoinGroupMode(View view) {
+        finish();
+        startActivity(new Intent(this,JoinPage.class));
     }
 }
