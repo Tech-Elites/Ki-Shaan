@@ -15,13 +15,13 @@ The various unique functionalities provided by our app are as follows:-
 
 Our app will not only help to provide remunerative prices to the farmers for their crops but also help them deal with any other financial deficiencies they may face.
 
-#Interface for the customers:-
-●	The customers can access all the crops sorted in the order of lowest price, that has been put up for sale by different farmers.All the data displayed is auto updated, all because of the realtime database.
-●	For each of the selected crops, the description is provided and after the quantity to be buyed is validated, the customer can purchase the crops using suitable payment methods.
-●	The customers have an option to contact us if they face any issues related to the app.
-●	The customers also have an option to donate some amount of their choice to help the farmers prosper more and become self-reliant.
+#Interface for the customers:-<br>
+●	The customers can access all the crops sorted in the order of lowest price, that has been put up for sale by different farmers.All the data displayed is auto updated, all because of the realtime database.<br>
+●	For each of the selected crops, the description is provided and after the quantity to be buyed is validated, the customer can purchase the crops using suitable payment methods.<br>
+●	The customers have an option to contact us if they face any issues related to the app.<br>
+●	The customers also have an option to donate some amount of their choice to help the farmers prosper more and become self-reliant.<br>
 
-_Apart from these,we have included proper authentication of users accessing our app in the form of Login and Register forms, to avoid unnecessary overflow of our database._
+<br>Apart from these,we have included proper authentication of users accessing our app in the form of Login and Register forms, to avoid unnecessary overflow of our database._
 
 ## Android Application
 
