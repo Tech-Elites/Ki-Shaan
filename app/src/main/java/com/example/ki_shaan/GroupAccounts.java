@@ -43,14 +43,14 @@ public class GroupAccounts extends AppCompatActivity {
                         {
                             for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren())
                             {
-                                Toast.makeText(GroupAccounts.this, ""+dataSnapshot1.getValue().toString(), Toast.LENGTH_SHORT).show();
+
                                 usrIds.add(dataSnapshot1.getValue().toString());
                             }
                         }
                         else
                         {
                             if(dataSnapshot.getKey().compareTo("ta")==0) {
-                                tx.setText("Total asset- \nRs."+dataSnapshot.getValue().toString());
+                                tx.setText("Total asset owned by the grp- \nRs."+dataSnapshot.getValue().toString());
                             }
 
 
@@ -119,7 +119,7 @@ public class GroupAccounts extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             }
         });
-        p=findViewById(R.id.progressBarGrpAccount);
+        p=findViewById(R.id.progressBarGrpAccountr);
         p.setVisibility(View.INVISIBLE);
         fill();
 
