@@ -28,4 +28,6 @@ public class CoopLandingPage extends AppCompatActivity {
     }
 
 
+    public void requests(View view) {startActivity(new Intent(this,MainActivity2.class));
+    }
 }
