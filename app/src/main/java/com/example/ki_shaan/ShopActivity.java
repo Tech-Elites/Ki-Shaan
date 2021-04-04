@@ -34,7 +34,9 @@ public class ShopActivity extends AppCompatActivity {
     ArrayList<Integer> qtyavail;
     String tempSeller;
     int tempqty;
-    ProgressBar p;
+    ProgressBar p;int index=0;
+    DatabaseReference databaseReference;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -223,7 +225,9 @@ public class ShopActivity extends AppCompatActivity {
                     .setMessage("Please enter a query.")
                     .setPositiveButton("Ok", null)
                     .show();
+            loadListView();
         }else{
+
             ArrayList<ShopItemsClass> temp2 = new ArrayList<>();
             ArrayList<String> sellerIdTemp = new ArrayList<>();
             ArrayList<Integer> qtyavailTemp = new ArrayList<>();
@@ -234,10 +238,25 @@ public class ShopActivity extends AppCompatActivity {
                     qtyavailTemp.add(qtyavail.get(i));
                 }
             }
-            allProducts=temp2;
-            qtyavail=qtyavailTemp;
-            sellerId=sellerIdTemp;
-            loadListView();
+
+            lv = findViewById(R.id.customerShopListView);
+            adapter = new ShopItemsCustomAdapter(this, temp2);
+            lv.setAdapter(adapter);
+            p.setVisibility(View.INVISIBLE);
+            lv.setOnItemClickListener(
+                    new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            Intent intent = new Intent(ShopActivity.this, EachShopItemPage.class);
+                            intent.putExtra("title",temp2.get(position).name);
+                            intent.putExtra("price",temp2.get(position).price);
+                            intent.putExtra("sellerid",sellerIdTemp.get(position));
+                            intent.putExtra("qtyavail",qtyavailTemp.get(position));
+                            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(ShopActivity.this).toBundle());
+                            finish();
+                        }
+                    }
+            );
         }
     }
 }
