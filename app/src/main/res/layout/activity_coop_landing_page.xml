@@ -86,6 +86,7 @@
                     android:drawableTop="@drawable/ic_grp_borrow"
 
                     android:fontFamily="@font/scriptmt"
+                    android:onClick="onClickBorrow"
                     android:text="Borrow"
                     android:textAllCaps="false"
                     android:textSize="20dp" />

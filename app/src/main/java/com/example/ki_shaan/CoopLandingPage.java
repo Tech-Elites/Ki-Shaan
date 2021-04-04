@@ -22,4 +22,10 @@ public class CoopLandingPage extends AppCompatActivity {
         startActivity(new Intent(this,GroupAccounts.class));
     }
 
+    public void onClickBorrow(View view)
+    {
+        startActivity(new Intent(this,BorrowMoneyFarmer.class));
+    }
+
+
 }
