@@ -4,10 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActivityOptions;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -212,5 +214,30 @@ public class ShopActivity extends AppCompatActivity {
     }
 
     public void customerShopSearch(View view) {
+        EditText t1 = findViewById(R.id.editTextTextPersonName2);
+        String name = t1.getText().toString();
+        if(name.compareTo("")==0){
+            new AlertDialog.Builder(this)
+                    .setIcon(android.R.drawable.ic_dialog_info)
+                    .setTitle("Details not filled!")
+                    .setMessage("Please enter a query.")
+                    .setPositiveButton("Ok", null)
+                    .show();
+        }else{
+            ArrayList<ShopItemsClass> temp2 = new ArrayList<>();
+            ArrayList<String> sellerIdTemp = new ArrayList<>();
+            ArrayList<Integer> qtyavailTemp = new ArrayList<>();
+            for(int i=0;i<allProducts.size();i++){
+                if(allProducts.get(i).name.compareTo(name)==0){
+                    temp2.add(allProducts.get(i));
+                    sellerIdTemp.add(sellerId.get(i));
+                    qtyavailTemp.add(qtyavail.get(i));
+                }
+            }
+            allProducts=temp2;
+            qtyavail=qtyavailTemp;
+            sellerId=sellerIdTemp;
+            loadListView();
+        }
     }
 }

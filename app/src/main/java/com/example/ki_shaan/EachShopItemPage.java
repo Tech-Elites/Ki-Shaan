@@ -6,6 +6,7 @@ import android.app.ActivityOptions;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -42,7 +43,15 @@ public class EachShopItemPage extends AppCompatActivity {
     public void buyThisItemClick(View view) {
         EditText t4 = findViewById(R.id.qtyInput);
         userQty = Integer.parseInt(t4.getText().toString());
-        if(userQty>qtyavail || userQty<=0){
+        if(t4.getText().toString().matches("")){
+            new AlertDialog.Builder(EachShopItemPage.this)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setTitle("Quantity not available.")
+                    .setMessage("Please enter quantity.")
+                    .setPositiveButton("Okay",null)
+                    .show();
+        }
+        else if(userQty>qtyavail || userQty<=0 ){
             new AlertDialog.Builder(EachShopItemPage.this)
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setTitle("Quantity not available.")
@@ -56,7 +65,6 @@ public class EachShopItemPage extends AppCompatActivity {
             intent.putExtra("sellerid",sellerid);
             intent.putExtra("userQty",userQty);
             startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
-            finish();
         }
     }
 }
