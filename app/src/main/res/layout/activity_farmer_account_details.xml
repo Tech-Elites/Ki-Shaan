@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FarmerAccountDetails">
+    tools:context=".FarmerAccountDetails"
+    android:background="@drawable/back1">
 
     <LinearLayout
         android:id="@+id/linearLayout6"
@@ -35,10 +36,11 @@
             android:padding="10dp"
             android:text="Name"
             android:textColor="@color/black"
-            android:textSize="40dp"
+            android:textSize="50dp"
             android:textStyle="bold" />
 
         <TextView
+            android:layout_marginTop="20dp"
             android:id="@+id/farmeraccountPageEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -51,6 +53,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:layout_marginTop="30dp"
             android:id="@+id/farmeraccountPageMobile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -62,17 +65,7 @@
             android:textSize="30dp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/farmeraccountPageRole"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:fontFamily="@font/scriptmt"
-            android:padding="10dp"
-            android:text="User-Role"
-            android:textColor="@color/black"
-            android:textSize="30dp"
-            android:textStyle="bold" />
+
 
     </LinearLayout>
 

@@ -48,10 +48,11 @@ public class AccountPage extends AppCompatActivity {
                         public void onComplete(@NonNull Task<DataSnapshot> task) {
 
                             UserInfo u = task.getResult().getValue(UserInfo.class);
-                            t1.setText(u.getFirstname());
-                            t2.setText(u.getEmail());
-                            t3.setText(u.getMobile());
-                            t4.setText(u.getRole());
+                            t1.setText("Name- "+u.getFirstname());
+                            t2.setText("Email- "+u.getEmail());
+                            t3.setText("Mobile no- "+u.getMobile());
+
+                            t4.setText("Role- "+u.getRole());
                             p.setVisibility(View.INVISIBLE);
                         }
                     }

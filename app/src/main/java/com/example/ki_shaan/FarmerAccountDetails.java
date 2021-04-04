@@ -28,7 +28,7 @@ public class FarmerAccountDetails extends AppCompatActivity {
         TextView t1 = findViewById(R.id.farmeraccountPageName);
         TextView t2 = findViewById(R.id.farmeraccountPageEmail);
         TextView t3 = findViewById(R.id.farmeraccountPageMobile);
-        TextView t4 = findViewById(R.id.farmeraccountPageRole);
+
 
         firebaseAuth = FirebaseAuth.getInstance();
         u = firebaseAuth.getCurrentUser();
@@ -40,10 +40,10 @@ public class FarmerAccountDetails extends AppCompatActivity {
                         public void onComplete(@NonNull Task<DataSnapshot> task) {
 
                             UserInfo u = task.getResult().getValue(UserInfo.class);
-                            t1.setText(u.getFirstname());
-                            t2.setText(u.getEmail());
-                            t3.setText(u.getMobile());
-                            t4.setText(u.getRole());
+                            t1.setText("Name- "+u.getFirstname());
+                            t2.setText("Email- "+u.getEmail());
+                            t3.setText("Mobile no- "+u.getMobile());
+
                         }
                     }
             );
