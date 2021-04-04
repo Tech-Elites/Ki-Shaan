@@ -28,11 +28,11 @@
             </LinearLayout>
 
             <EditText
-
                 android:layout_marginTop="20dp"
                 android:id="@+id/cardno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:padding="10dp"
                 android:ems="10"
                 android:gravity="bottom"
@@ -49,6 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/scriptmt"
+                android:padding="10dp"
                 android:textSize="30dp"
                 android:longClickable="false"
                 android:clickable="false"
@@ -70,6 +71,7 @@
                 android:ems="10"
                 android:gravity="bottom"
                 android:textColor="@color/white"
+                android:inputType="textPassword"
                 android:textStyle="bold"
                 android:fontFamily="@font/scriptmt"
                 android:textColorHint="#C6B8B8"
@@ -77,6 +79,7 @@
                 android:hint="Enter CVV" />
 
             <Button
+                android:onClick="paymentPagepayment"
                 android:textColor="@color/purple"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"

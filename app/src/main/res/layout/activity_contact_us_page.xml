@@ -44,6 +44,8 @@
 
         <Button
             android:textColor="@color/purple"
+            android:onClick="contactPagecontact"
+            android:id="@+id/submit"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/red"
