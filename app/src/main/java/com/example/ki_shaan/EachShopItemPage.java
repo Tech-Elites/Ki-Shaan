@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class EachShopItemPage extends AppCompatActivity {
 
@@ -42,29 +43,32 @@ public class EachShopItemPage extends AppCompatActivity {
 
     public void buyThisItemClick(View view) {
         EditText t4 = findViewById(R.id.qtyInput);
-        userQty = Integer.parseInt(t4.getText().toString());
+
         if(t4.getText().toString().matches("")){
             new AlertDialog.Builder(EachShopItemPage.this)
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setTitle("Quantity not available.")
-                    .setMessage("Please enter quantity.")
+                    .setMessage("Please enter a quantity.")
                     .setPositiveButton("Okay",null)
                     .show();
         }
-        else if(userQty>qtyavail || userQty<=0 ){
-            new AlertDialog.Builder(EachShopItemPage.this)
-                    .setIcon(android.R.drawable.ic_dialog_alert)
-                    .setTitle("Quantity not available.")
-                    .setMessage("Please select item within quantity.")
-                    .setPositiveButton("Okay",null)
-                    .show();
-        }else{
-            Intent intent = new Intent(this, CustomerPayment.class);
-            intent.putExtra("name",name);
-            intent.putExtra("price",price);
-            intent.putExtra("sellerid",sellerid);
-            intent.putExtra("userQty",userQty);
-            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+        else{
+            userQty = Integer.parseInt(t4.getText().toString());
+            if(userQty>qtyavail || userQty<=0 ){
+                new AlertDialog.Builder(EachShopItemPage.this)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle("Quantity not available.")
+                        .setMessage("Please select item within quantity.")
+                        .setPositiveButton("Okay",null)
+                        .show();
+            }else{
+                Intent intent = new Intent(this, CustomerPayment.class);
+                intent.putExtra("name",name);
+                intent.putExtra("price",price);
+                intent.putExtra("sellerid",sellerid);
+                intent.putExtra("userQty",userQty);
+                startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+            }
         }
     }
 }
