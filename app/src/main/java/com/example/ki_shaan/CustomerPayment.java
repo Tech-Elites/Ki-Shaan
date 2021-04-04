@@ -1,29 +1,58 @@
 package com.example.ki_shaan;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.HashMap;
 
 public class CustomerPayment extends AppCompatActivity {
     String cardno;
     String edate;
     String cvv;
+    int groupAsset;
     EditText expirydate;
     int year,month,day;
+    String name;
+    int price;
+    String sellerid;
+    int userQty;
+    String groupName="";
+    int current, curqty;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_payment);
+        Bundle bundle = getIntent().getExtras();
+        name = bundle.getString("name");
+        price = bundle.getInt("price");
+        sellerid = bundle.getString("sellerid");
+        userQty = bundle.getInt("userQty");
         expirydate=findViewById(R.id.Expiry);
         final Calendar calendar=Calendar.getInstance();
         expirydate.setOnClickListener(new View.OnClickListener() {
@@ -49,7 +78,8 @@ public class CustomerPayment extends AppCompatActivity {
         cardno = t1.getText().toString();
         edate = t2.getText().toString();
         cvv = t3.getText().toString();
-        pay(cardno,edate,cvv);
+//        pay(cardno,edate,cvv);
+        addToAccounts();
     }
 
     void pay(String cardno, String edate,String cvv) {
@@ -68,10 +98,128 @@ public class CustomerPayment extends AppCompatActivity {
                     .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            finish();
+                            addToAccounts();
+//                            finish();
                         }
                     })
                     .show();
         }
     }
+
+    void addToAccounts(){
+
+        try {
+            FirebaseDatabase.getInstance().getReference().child("accounts").child(sellerid).get().addOnCompleteListener(
+                    new OnCompleteListener<DataSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+                            try {
+                                JSONObject js = new JSONObject(task.getResult().getValue().toString());
+                                current = js.getInt("totalassets");
+                                //Toast.makeText(CustomerPayment.this, current+" ", Toast.LENGTH_SHORT).show();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+//                            Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
+                            int tempUpdate = (int) (current+0.9f*userQty*price);
+                            groupAsset=(int)(userQty*price*0.1);
+                            Toast.makeText(CustomerPayment.this, groupAsset+"", Toast.LENGTH_SHORT).show();
+                            FirebaseDatabase.getInstance().getReference().child("accounts").child(sellerid).child("totalassets").setValue(tempUpdate);
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            if(user!=null) {
+                                OrdersClass oc = new OrdersClass(user.getEmail(), name, price, userQty);
+                                HashMap<String, Object> hm = oc.getHashMap();
+                                FirebaseDatabase.getInstance().getReference().child("accounts").child(sellerid).child("orders").push().setValue(hm);
+                            }
+
+                        }
+                    }
+            );
+        }
+        catch (Exception e){
+            System.out.println("AEPI"+e);
+        }
+
+
+
+            String cat;
+            if( name.compareTo("rice")==0 || name.compareTo("wheat")==0){
+                cat="grains";
+            }
+            else{
+                cat="pulses";
+            }
+
+            try {
+                FirebaseDatabase.getInstance().getReference().child("products").child(cat).child(name).child(sellerid).get().addOnCompleteListener(
+                        new OnCompleteListener<DataSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                try {
+                                    JSONObject js = new JSONObject(task.getResult().getValue().toString());
+                                    curqty = js.getInt("quantityavailable");
+                                    //Toast.makeText(CustomerPayment.this, current+" ", Toast.LENGTH_SHORT).show();
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                                FirebaseDatabase.getInstance().getReference().child("products").child(cat).child(name).child(sellerid).child("quantityavailable").setValue(curqty-userQty);
+                                addGroupAsset();
+
+                            }
+                        }
+                );
+            }
+            catch (Exception e){
+                System.out.println("AEPI"+e);
+            }
+
+        }
+
+        void addGroupAsset(){
+
+
+            DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("groups");
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                    int flag = 0;
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                            if (dataSnapshot1.getKey().compareTo("te") != 0 && dataSnapshot1.getKey().compareTo("ta") != 0) {
+                                for (DataSnapshot dataSnapshot2 : dataSnapshot1.getChildren()) {
+                                    if (dataSnapshot2.getValue().toString().compareTo(sellerid) == 0) {
+                                        flag = 1;
+                                        groupName = dataSnapshot.getKey();
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if (flag == 1) {
+                        //Toast.makeText(CustomerPayment.this, groupName, Toast.LENGTH_SHORT).show();
+                        FirebaseDatabase.getInstance().getReference().child("groups").child(groupName).child("ta").get().addOnCompleteListener(
+                                new OnCompleteListener<DataSnapshot>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                        int totalAssets = Integer.parseInt(task.getResult().getValue().toString());
+                                        Toast.makeText(CustomerPayment.this, totalAssets+"", Toast.LENGTH_SHORT).show();
+                                        groupAsset+=totalAssets;
+                                        FirebaseDatabase.getInstance().getReference().child("groups").child(groupName).child("ta").setValue(groupAsset);
+
+                                    }
+                                }
+                        );
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
+
+
 }
