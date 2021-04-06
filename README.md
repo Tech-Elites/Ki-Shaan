@@ -1,5 +1,6 @@
 # Ki-Shaan
 The "Ki-shaan" app aims to provide a better marketplace for the farmers by removing dependency on middlemen and local traders and selling their crops directly to the customer.This is achieved by allowing farmers to create or join cooperatives which also helps in providing good quality seeds and equipment.Also it allows the farmers to borrow some money from the common cooperative fund on the basis of a voting system.
+<a href="https://devfolio.co/submissions/kishaan-4699">Link to the devfolio page of our app</a>
 
 ## App Features 
 The various unique functionalities provided by our app are as follows:-
